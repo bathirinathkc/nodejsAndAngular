@@ -1,0 +1,47 @@
+<div>
+    
+  <div class="container">
+    <div class="col-md-12">
+      <table id="example" class="table bgborder col-md-10">
+        <thead class="verticalAlign">
+          <tr class="even">
+            <th>S.No</th>
+            <th>User Name</th>
+            <th>Edit / Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% data.forEach(function(record,index)  { %>
+          <tr>
+            <td class="vertical-align">
+           <%=  index+1 %>
+            </td>
+            <td class="vertical-align">
+              <a ><%= record.userName %></a>
+            </td>
+            <td>
+                 <a href='/userRecord/<%= record.id %>'>
+                    Update
+                 </a>
+                  <a href='/deleteUser/<%= record.id %>'>
+                    Delete
+                  </a>
+            </td>
+          </tr>
+         <% }); %>
+        </tbody>
+      </table>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+

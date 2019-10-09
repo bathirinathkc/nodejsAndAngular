@@ -24,7 +24,13 @@ module.exports.routes = {
   'post /api/createUser': 'UserController.createUser',
   'post /api/loginVerify': 'UserController.loginVerify',
   'get /api/allUser': 'UserController.allUser',
-
+  'post /api/deleteUser':'UserController.deleteUser',
+  'get /login':{view:'pages/login'},
+  'post /login':'UserController.login',
+  'get /listuser':'UserController.listUser',
+  'get /userRecord/:userId':'UserController.userRecord',
+  'post /updateUser':'UserController.updateUser',
+  'get /deleteUser/:userId':'UserController.deleteRecord'
   
   /***************************************************************************
   *                                                                          *

@@ -20,9 +20,18 @@ tableName:'users',
     },
     password:{
       type:'string'
+    },
+    isDelete:{
+      type:'number',
+      defaultsTo:0
+    },
+    userDetails:{
+      collection:'userdetails',
+      via:'userId'
     }
-  
-
+  },
+  customToJSON:function () { 
+    return  _.omit(this, ['password']);
   },
   beforeCreate: function (values, cb) {
     bcrypt.hash(values.password, 10, (err, hash) => {

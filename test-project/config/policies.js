@@ -20,6 +20,11 @@ module.exports.policies = {
    '*': ['isAuthorized'],
   UserController:{
     loginVerify:true,
-    allUser:true
+    allUser:true,
+    login:true,
+    listUser:['isAuthenticated'],
+    userRecord:['isAuthenticated'],
+    updateUser:['isAuthenticated'],
+    deleteRecord:['isAuthenticated']
   }
 };
