@@ -57,7 +57,9 @@ module.exports = {
     } else {
       // eslint-disable-next-line handle-callback-err
       User.find({ userName: req.param('userName') }).exec((err, record) => {
-        if (record) {
+        console.log('err',err)
+        console.log('record',record)
+        if (record && record.length>0) {
           // eslint-disable-next-line handle-callback-err
           bcrypt.compare(password, record[0].password, (err, result) => {
             if (err) {
@@ -69,7 +71,7 @@ module.exports = {
               var token =  jwt.sign({id:record[0].id}, sails.config.globals.jwtSecret, {
                 expiresIn   :60 *60
               });
-              res.status(200).json({ msg: 'success', data: record[0], token: token });
+              res.status(200).json({ msg: 'success',status:true, data: record[0], token: token });
             }
           });
         }else{
